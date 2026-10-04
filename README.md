@@ -1,2 +1,38 @@
-# pahadi-rasoi-website
-Pahadi Rasoi – Restaurant Website | Freelance Client Project A responsive restaurant website developed as a freelance project for a client, featuring a menu, cart, offers, login, order tracking, and other essential restaurant functionality. Built with HTML, CSS, and JavaScript
+# Pahadi Rasoi
+
+A restaurant website developed as a freelance project for a client.
+
+## About the Project
+
+Pahadi Rasoi is a restaurant website designed and developed
+to provide customers with an easy-to-use online experience.
+
+## Features
+
+- Restaurant homepage
+- About Us page
+- Menu page
+- Shopping cart
+- Login page
+- Special offers
+- Order tracking
+- Restaurant branding and logo
+
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+
+## Project Type
+
+Freelance Client Project
+
+## Note
+
+This project was developed for a freelance client.
+The repository is shared for portfolio and demonstration purposes.
+
+## Developer
+
+Developed by Suryansh
