@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Us | Pahadi Rasoi 🌄</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    body{background:#f7f9fb;font-family:'Poppins',sans-serif;color:#111}
+    .navbar{background:transparent;backdrop-filter:blur(6px)}
+    .brand{font-family:'Orbitron',sans-serif;font-weight:600;color:#222}
+    .hamburger{font-size:28px;color:black;cursor:pointer;margin-right:12px}
+    .sidebar{height:100%;width:0;position:fixed;top:0;left:0;background:#fff;overflow-x:hidden;transition:.35s;padding-top:60px;z-index:1200;display:flex;flex-direction:column;justify-content:space-between;box-shadow:2px 0 12px rgba(0,0,0,0.1)}
+    .sidebar a{padding:14px 28px;text-decoration:none;font-size:18px;color:#111;display:block}
+    .sidebar a:hover{background:#f2f4f6;border-radius:6px}
+    .sidebar .closebtn{position:absolute;top:12px;right:18px;font-size:28px;color:#111}
+    .about-hero{height:30vh;background:url('https://th.bing.com/th/id/R.26c5fe9db2e9af592c15c218e9b3a962?rik=q0QzTRVvLJGY2Q&riu=http%3a%2f%2fwww.mountainphotography.com%2fimages%2fxl%2f20120928-Cimarron-Sunset-Panorama.jpg&ehk=FH5wGmqzyC%2bfK%2fbXWcbBhgJ6TgyKNZKEH90a2JBl1i8%3d&risl=&pid=ImgRaw&r=0') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Orbitron',sans-serif;font-size:2.2rem;text-shadow:0 3px 6px rgba(0,0,0,0.5)}
+    .section-title{font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:600;margin-bottom:1rem;color:#1d3557}
+    .card-info{border:none;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.06);padding:20px;text-align:center;background:#fff}
+    .card-info i{font-size:2rem;color:#e63946;margin-bottom:12px}
+    .contact-card{background:#fff;border-radius:12px;box-shadow:0 6px 16px rgba(0,0,0,0.06);padding:20px}
+    .map-img{width:100%;height:260px;border-radius:10px;object-fit:cover}
+  </style>
+</head>
+<body>
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="offer.html">Offers</a>
+      <a href="track.html">Track Order</a>
+    </div>
+    <a href="login.html" style="margin:20px;padding:12px;text-align:center;border:1px solid #ddd;border-radius:10px">Logout</a>
+  </div>
+  <nav class="navbar navbar-expand-lg px-4">
+    <span class="hamburger" onclick="openNav()">&#9776;</span>
+    <a class="navbar-brand brand" href="index.html">Pahadi Rasoi</a>
+  </nav>
+  <div class="about-hero">🌄 About Us</div>
+  <main class="container py-5">
+    <section class="mb-5">
+      <h2 class="section-title text-center">Our Story</h2>
+      <p class="text-center mx-auto" style="max-width:800px">
+        Welcome to <strong>Pahadi Rasoi</strong>, a celebration of authentic mountain flavors straight from the heart of Uttarakhand and Himachal.  
+        We believe in preserving our pahadi food culture while presenting it in a modern, healthy, and heartwarming way.  
+        Every dish is crafted with fresh local ingredients, age-old recipes, and a touch of mountain love.
+      </p>
+    </section>
+    <section class="mb-5">
+      <h2 class="section-title text-center">Why Choose Us?</h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-4">
+          <div class="card-info">
+            <i class="bi bi-egg-fried"></i>
+            <h5>Authentic Recipes</h5>
+            <p>Traditional pahadi dishes made with original recipes passed through generations.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-info">
+            <i class="bi bi-truck"></i>
+            <h5>Fast Delivery</h5>
+            <p>Hot, fresh, and timely delivery to your doorstep across the city.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-info">
+            <i class="bi bi-heart-fill"></i>
+            <h5>Healthy & Fresh</h5>
+            <p>Locally sourced ingredients with a focus on nutrition and quality.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2 class="section-title text-center">Contact Us</h2>
+      <div class="row g-4 mt-3">
+        <div class="col-md-6">
+          <div class="contact-card">
+            <h5>Pahadi Rasoi HQ</h5>
+            <p><i class="bi bi-geo-alt-fill me-2"></i> Mall Road, Shimla ,  Himachal Pradesh </p>
+            <p><i class="bi bi-telephone-fill me-2"></i> +91 8988217778</p>
+            <p><i class="bi bi-envelope-fill me-2"></i> support@pahadirasoi.in</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <img src="https://eindiatourism.in/wp-content/uploads/2023/07/Mall_Road_Shimla_1.jpg" alt="Map" class="map-img"/>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="text-center py-4" style="color:#666">© 2025 Pahadi Rasoi • Taste the Mountains</footer>
+  <script>
+    function openNav(){document.getElementById("sidebar").style.width="260px"}
+    function closeNav(){document.getElementById("sidebar").style.width="0"}
+  </script>
+</body>
+</html>

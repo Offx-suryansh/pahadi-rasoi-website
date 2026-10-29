@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Track Order | Pahadi Rasoi 🌄</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root{
+      --accent:#f6b93b;
+      --muted:#f4f6f8;
+      --dark:#0f1720;
+      --card:#ffffff;
+    }
+    html,body{height:100%;margin:0;font-family:'Poppins',sans-serif;background:#f7f9fb;color:var(--dark)}
+    .navbar-custom{background:transparent;backdrop-filter:blur(6px);padding:1rem 1.25rem}
+    .brand{font-family:'Orbitron',sans-serif;font-weight:700;color:var(--dark)}
+    .hamburger{font-size:30px;color:black;cursor:pointer;margin-right:.75rem;user-select:none}
+    .sidebar{height:100%;width:0;position:fixed;top:0;left:0;background:#fff;overflow-x:hidden;transition:0.38s;padding-top:64px;z-index:1100;box-shadow:2px 0 18px rgba(13,17,23,0.08);display:flex;flex-direction:column;justify-content:space-between}
+    .sidebar a{padding:14px 28px;text-decoration:none;font-size:18px;color:#0b0f12;display:block;transition:0.18s}
+    .sidebar a:hover{background:#f3f5f7;border-radius:8px}
+    .sidebar .closebtn{position:absolute;top:12px;right:18px;font-size:28px;color:#0b0f12}
+    .hero-visual{height:34vh;background:url('https://th.bing.com/th/id/R.26c5fe9db2e9af592c15c218e9b3a962?rik=q0QzTRVvLJGY2Q&riu=http%3a%2f%2fwww.mountainphotography.com%2fimages%2fxl%2f20120928-Cimarron-Sunset-Panorama.jpg&ehk=FH5wGmqzyC%2bfK%2fbXWcbBhgJ6TgyKNZKEH90a2JBl1i8%3d&risl=&pid=ImgRaw&r=0') center/cover no-repeat;border-bottom-left-radius:18px;border-bottom-right-radius:18px;box-shadow:0 8px 30px rgba(11,15,20,0.06);display:flex;align-items:center;justify-content:center}
+    .hero-visual .overlay{background:linear-gradient(180deg,rgba(2,6,23,0.15),rgba(2,6,23,0.2));width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-bottom-left-radius:18px;border-bottom-right-radius:18px}
+    .hero-card{background:rgba(255,255,255,0.92);border-radius:12px;padding:18px 22px;max-width:1100px;width:95%;box-shadow:0 12px 40px rgba(2,6,23,0.06);display:flex;gap:18px;align-items:center}
+    .order-info h3{margin:0;font-weight:700}
+    .order-meta{color:#5b6b73;font-size:.95rem;margin-top:6px}
+    .progress-steps{display:flex;gap:18px;align-items:center;margin-top:18px}
+    .step{width:72px;height:72px;border-radius:12px;background:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:600;color:#374151}
+    .step.active{background:linear-gradient(180deg,var(--accent),#f08c2e);color:#fff;box-shadow:0 8px 20px rgba(246,185,59,0.16)}
+    .map-card{background:var(--card);border-radius:12px;padding:12px;box-shadow:0 8px 30px rgba(2,6,23,0.04)}
+    .map-img{width:100%;height:320px;object-fit:cover;border-radius:10px}
+    .order-card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 8px 30px rgba(2,6,23,0.04)}
+    .eta{font-size:1.1rem;font-weight:700;color:#243447}
+    .timer{font-weight:700;color:#e76f51}
+    .item-row{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed #eef2f4}
+    .item-thumb{width:64px;height:64px;border-radius:8px;object-fit:cover}
+    .btn-primary-custom{background:var(--dark);border:none;padding:.6rem 1rem;border-radius:10px;color:#fff}
+    .btn-outline-small{border:1px solid #e6eef2;background:#fff;padding:.48rem .7rem;border-radius:8px;color:#243447}
+    @media(max-width:991px){.hero-visual{height:28vh}.map-img{height:220px}}
+  </style>
+</head>
+<body>
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <a href="#about">About Us</a>
+      <a href="track.html">Track Order</a>
+    </div>
+    <a href="login.html" style="margin:18px 28px 28px 28px;padding:12px;border-radius:10px;background:#fff;border:1px solid #f0f2f4;text-align:center">Logout</a>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <div class="container-fluid px-4 d-flex align-items-center">
+      <span class="hamburger" onclick="openNav()">&#9776;</span>
+      <a class="navbar-brand brand" href="index.html">Pahadi Rasoi</a>
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <a class="btn btn-outline-small" href="menu.html"><i class="bi bi-list-ul me-1"></i> Menu</a>
+        <a class="btn btn-outline-small" href="offer.html"><i class="bi bi-award me-1"></i> Offers</a>
+        <a class="btn btn-primary-custom" href="cart.html"><i class="bi bi-cart-fill me-2"></i>Cart</a>
+      </div>
+    </div>
+  </nav>
+  <section class="hero-visual">
+    <div class="overlay">
+      <div class="hero-card">
+        <div style="flex:1" class="order-info">
+          <h3>Order #PR-8231</h3>
+          <div class="order-meta">Placed 8 minutes ago • Delivering to: 69A SUMMER HILLS , SHIMLA </div>
+          <div class="progress-steps">
+            <div id="step1" class="step active">
+              <i class="bi bi-receipt-cutoff" style="font-size:18px;margin-bottom:6px"></i>
+              Placed
+            </div>
+            <div id="step2" class="step">
+              <i class="bi bi-check2-square" style="font-size:18px;margin-bottom:6px"></i>
+              Preparing
+            </div>
+            <div id="step3" class="step">
+              <i class="bi bi-truck" style="font-size:18px;margin-bottom:6px"></i>
+              On the way
+            </div>
+            <div id="step4" class="step">
+              <i class="bi bi-house-door" style="font-size:18px;margin-bottom:6px"></i>
+              Delivered
+            </div>
+          </div>
+        </div>
+        <div style="width:320px" class="text-end">
+          <div class="order-card">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <div>
+                <div class="eta">Estimated Delivery</div>
+                <div class="timer" id="countdown">00:20:00</div>
+              </div>
+              <div style="text-align:right">
+                <div style="font-weight:700">Rider</div>
+                <div style="color:#5b6b73">Ramesh • 98xxxxxx90</div>
+                <a class="btn btn-outline-small mt-2" href="tel:9800000000"><i class="bi bi-telephone-fill me-1"></i>Call</a>
+              </div>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:8px;justify-content:space-between">
+              <a id="cancelBtn" class="btn btn-outline-small" href="#">Cancel Order</a>
+              <a class="btn btn-primary-custom" href="track.html">Refresh Status</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <main class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="map-card mb-3">
+          <img class="map-img" src="https://eindiatourism.in/wp-content/uploads/2023/07/Mall_Road_Shimla_1.jpg" alt="map placeholder" />
+        </div>
+        <div class="order-card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-weight:700;font-size:1.05rem">Your Order</div>
+              <div style="color:#6b7780;font-size:.95rem">2 items • Paid via UPI</div>
+            </div>
+            <div style="font-weight:800;font-size:1.05rem">₹ 349</div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="item-row">
+              <img class="item-thumb" src="https://static.toiimg.com/thumb/msid-61942422,width-1070,height-580,resizemode-75/61942422,pt-32,y_pad-40/61942422.jpg" alt="Mandua Roti" />
+              <div style="flex:1">
+                <div style="font-weight:700">Mandua Roti</div>
+                <div style="color:#6b7780;font-size:.9rem">1 x • ₹ 120</div>
+              </div>
+              <div style="font-weight:700">₹ 120</div>
+            </div>
+            <div class="item-row">
+              <img class="item-thumb" src="https://www.crazymasalafood.com/wp-content/images/Kafuli.jpeg" alt="Kafuli" />
+              <div style="flex:1">
+                <div style="font-weight:700">Kafuli</div>
+                <div style="color:#6b7780;font-size:.9rem">1 x • ₹ 180</div>
+              </div>
+              <div style="font-weight:700">₹ 180</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:12px">
+              <div style="color:#6b7780">Delivery Fee</div>
+              <div style="font-weight:700">₹ 49</div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding-top:8px;border-top:1px solid #f0f3f5;margin-top:12px;padding-top:12px">
+              <div style="font-weight:700">Total</div>
+              <div style="font-weight:800">₹ 349</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="order-card mb-3">
+          <div style="display:flex;align-items:center;gap:12px">
+            <img src="https://eindiatourism.in/wp-content/uploads/2023/07/Mall_Road_Shimla_1.jpg" style="width:74px;height:74px;border-radius:10px;object-fit:cover" alt="restaurant" />
+            <div>
+              <div style="font-weight:800">Pahadi Rasoi - Old Town</div>
+              <div style="color:#6b7780;font-size:.95rem">Preparing since 8:02 PM</div>
+            </div>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap">
+            <a class="btn btn-outline-small"><i class="bi bi-geo-alt-fill me-1"></i>View Route</a>
+            <a class="btn btn-outline-small"><i class="bi bi-chat-dots me-1"></i>Message Rider</a>
+            <a class="btn btn-outline-small"><i class="bi bi-clock me-1"></i>Order History</a>
+          </div>
+        </div>
+        <div class="order-card">
+          <div style="font-weight:800;margin-bottom:8px">Delivery Instructions</div>
+          <div style="color:#475860">Leave at doorstep. Gate code: 4421. Call if needed.</div>
+          <div style="margin-top:12px;display:flex;gap:8px">
+            <a class="btn btn-primary-custom w-100" id="liveTrackBtn"><i class="bi bi-compass me-2"></i>Live Track</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="text-center py-4" style="background:transparent;color:#6b7780">
+    <div>© 2025 Pahadi Rasoi • Taste the Mountains</div>
+  </footer>
+  <script>
+    function openNav(){document.getElementById("sidebar").style.width="280px"}
+    function closeNav(){document.getElementById("sidebar").style.width="0"}
+    const countdownEl=document.getElementById("countdown")
+    let secondsLeft=20*60
+    function updateCountdown(){const m=Math.floor(secondsLeft/60).toString().padStart(2,'0');const s=(secondsLeft%60).toString().padStart(2,'0');countdownEl.textContent=`00:${m}:${s}`;if(secondsLeft>0)secondsLeft--}
+    setInterval(updateCountdown,1000)
+    updateCountdown()
+    const steps=[document.getElementById('step1'),document.getElementById('step2'),document.getElementById('step3'),document.getElementById('step4')]
+    let current=1
+    function advanceStep(){if(current<steps.length){steps[current].classList.add('active');current++}}
+    setInterval(advanceStep,15000)
+    document.getElementById('liveTrackBtn').addEventListener('click',()=>{window.scrollTo({top:0,behavior:'smooth'})})
+    document.getElementById('cancelBtn').addEventListener('click',(e)=>{e.preventDefault();alert('Cancel request sent. Customer care will contact you shortly.')})
+  </script>
+</body>
+</html>

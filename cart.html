@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cart | Pahadi Rasoi 🌄</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body{background:#f7f9fb;font-family:'Poppins',sans-serif;color:#111}
+    .navbar{background:transparent;backdrop-filter:blur(6px)}
+    .brand{font-family:'Orbitron',sans-serif;font-weight:600;color:#222}
+    .hamburger{font-size:28px;color:black;cursor:pointer;margin-right:12px}
+    .sidebar{height:100%;width:0;position:fixed;top:0;left:0;background:#fff;overflow-x:hidden;transition:.35s;padding-top:60px;z-index:1200;display:flex;flex-direction:column;justify-content:space-between;box-shadow:2px 0 12px rgba(0,0,0,0.1)}
+    .sidebar a{padding:14px 28px;text-decoration:none;font-size:18px;color:#111;display:block}
+    .sidebar a:hover{background:#f2f4f6;border-radius:6px}
+    .sidebar .closebtn{position:absolute;top:12px;right:18px;font-size:28px;color:#111}
+    .cart-hero{height:26vh;background:url('https://th.bing.com/th/id/R.26c5fe9db2e9af592c15c218e9b3a962?rik=q0QzTRVvLJGY2Q&riu=http%3a%2f%2fwww.mountainphotography.com%2fimages%2fxl%2f20120928-Cimarron-Sunset-Panorama.jpg&ehk=FH5wGmqzyC%2bfK%2fbXWcbBhgJ6TgyKNZKEH90a2JBl1i8%3d&risl=&pid=ImgRaw&r=0') center/cover no-repeat;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Orbitron',sans-serif;font-size:2rem;text-shadow:0 3px 6px rgba(0,0,0,0.4)}
+    .cart-item{display:flex;align-items:center;gap:16px;padding:16px;background:#fff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.06);margin-bottom:14px}
+    .cart-item img{width:90px;height:90px;object-fit:cover;border-radius:10px}
+    .item-info{flex:1}
+    .item-title{font-weight:600;font-size:1.1rem}
+    .item-price{font-weight:600;color:#1d3557}
+    .qty-btn{border:none;background:#f1f3f5;padding:6px 10px;border-radius:6px;font-weight:600}
+    .remove-btn{color:#e63946;font-size:.9rem;text-decoration:none}
+    .summary-card{background:#fff;padding:20px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,0.06)}
+    .summary-row{display:flex;justify-content:space-between;margin-bottom:8px}
+    .total{font-weight:700;font-size:1.2rem;color:#1d3557}
+    .btn-primary-custom{background:#1d3557;color:#fff;border:none;padding:.65rem 1rem;border-radius:10px;font-weight:600}
+    .btn-outline-custom{border:1px solid #1d3557;background:#fff;color:#1d3557;padding:.65rem 1rem;border-radius:10px;font-weight:600}
+  </style>
+</head>
+<body>
+  <div id="sidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="offer.html">Offers</a>
+      <a href="track.html">Track Order</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <a href="login.html" style="margin:20px;padding:12px;text-align:center;border:1px solid #ddd;border-radius:10px">Logout</a>
+  </div>
+  <nav class="navbar navbar-expand-lg px-4">
+    <span class="hamburger" onclick="openNav()">&#9776;</span>
+    <a class="navbar-brand brand" href="index.html">Pahadi Rasoi</a>
+  </nav>
+  <div class="cart-hero">🛒 Your Cart</div>
+  <main class="container py-5">
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="cart-item">
+          <img src="https://static.toiimg.com/thumb/msid-61942422,width-1070,height-580,resizemode-75/61942422,pt-32,y_pad-40/61942422.jpg" alt="Mandua Roti">
+          <div class="item-info">
+            <div class="item-title">Mandua Roti</div>
+            <div class="item-price">₹120</div>
+            <button class="qty-btn">-</button> <span>1</span> <button class="qty-btn">+</button>
+          </div>
+          <a href="#" class="remove-btn">Remove</a>
+        </div>
+        <div class="cart-item">
+          <img src="https://www.crazymasalafood.com/wp-content/images/Kafuli.jpeg" alt="Kafuli">
+          <div class="item-info">
+            <div class="item-title">Kafuli</div>
+            <div class="item-price">₹180</div>
+            <button class="qty-btn">-</button> <span>1</span> <button class="qty-btn">+</button>
+          </div>
+          <a href="#" class="remove-btn">Remove</a>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="summary-card">
+          <h5 class="mb-3">Order Summary</h5>
+          <div class="summary-row"><span>Subtotal</span><span>₹300</span></div>
+          <div class="summary-row"><span>Delivery Fee</span><span>₹49</span></div>
+          <hr/>
+          <div class="summary-row total"><span>Total</span><span>₹349</span></div>
+          <div class="d-grid gap-2 mt-4">
+            <a href="menu.html" class="btn btn-outline-custom">Continue Shopping</a>
+            <a href="checkout.html" class="btn btn-primary-custom">Proceed to Checkout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="text-center py-4" style="color:#666">© 2025 Pahadi Rasoi • Taste the Mountains</footer>
+  <script>
+    function openNav(){document.getElementById("sidebar").style.width="260px"}
+    function closeNav(){document.getElementById("sidebar").style.width="0"}
+  </script>
+</body>
+</html>
